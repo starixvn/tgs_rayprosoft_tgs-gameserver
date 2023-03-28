@@ -9,6 +9,10 @@
     <Version>0.0.1</Version>
     <Authors>Raypro</Authors>
     <SqlQueryToolsConnectionString />
+    <PackageProjectUrl>https://gitlab.com/rayprosoft/tgs-gameserver</PackageProjectUrl>
+    <Description>提供遊戲資料操作Api</Description>
+    <RepositoryUrl>https://gitlab.com/rayprosoft/tgs-gameserver.git</RepositoryUrl>
+    <PackageTags>Tgs Game GameProvider</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>
