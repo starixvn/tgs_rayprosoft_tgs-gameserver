@@ -1,10 +1,19 @@
 ﻿using System.Net.Http.Headers;
 using System.Net.Http.Json;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace Tgs.GameServer.Clients;
 
 internal class GameServerClient : IGameServerClient
 {
+	private static readonly JsonSerializerOptions _JsonSerializerOptions = new(JsonSerializerDefaults.Web)
+	{
+		WriteIndented = false,
+		DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingDefault,
+		Converters = { new JsonStringEnumConverter() }
+	};
+
 	private readonly HttpClient _httpClient;
 	private readonly IEnumerable<IRequestContentHandler> _requestContentHandlers;
 
@@ -33,7 +42,7 @@ internal class GameServerClient : IGameServerClient
 			.ToAsyncEnumerable()
 			.Do(response => response.EnsureSuccessStatusCode())
 			.SelectMany(response => response.Content
-				.ReadFromJsonAsync<GameStatus>()
+				.ReadFromJsonAsync<GameStatus>(_JsonSerializerOptions)
 				.ToAsyncEnumerable())
 			.FirstOrDefaultAsync(cancellationToken)
 			.ConfigureAwait(false);
