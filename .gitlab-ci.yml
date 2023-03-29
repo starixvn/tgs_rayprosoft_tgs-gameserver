@@ -34,6 +34,7 @@ push-nuget:
 push-docker-image:
   extends: .push-docker-image-template
   script:
+    - echo "$ImageName:$Tag"
     - push_docker "Tgs.GameServer/Tgs.GameServer.csproj"
 
 push-k8s-template:
