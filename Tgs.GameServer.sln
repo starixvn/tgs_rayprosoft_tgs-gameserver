@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33516.290
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tgs.GameServer", "Tgs.GameServer\Tgs.GameServer.csproj", "{B0312A2A-5F31-40B3-94C7-B0C76821EA11}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tgs.GameServer", "Tgs.GameServer\Tgs.GameServer.csproj", "{B0312A2A-5F31-40B3-94C7-B0C76821EA11}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "方案項目", "方案項目", "{E3513A99-C933-4D29-AC00-2CA0C13DB408}"
 	ProjectSection(SolutionItems) = preProject
@@ -11,17 +11,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "方案項目", "方案項�
 		nuget.config = nuget.config
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameServer.Common", "GameServer.Common\GameServer.Common.csproj", "{B2B6FB55-5C4B-4467-8D17-10707275A689}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GameServer.Common", "GameServer.Common\GameServer.Common.csproj", "{B2B6FB55-5C4B-4467-8D17-10707275A689}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameServer.Core", "GameServer.Core\GameServer.Core.csproj", "{16A3E1F9-8A6F-485B-B064-557E3E3EE051}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GameServer.Core", "GameServer.Core\GameServer.Core.csproj", "{16A3E1F9-8A6F-485B-B064-557E3E3EE051}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameServer.Core.UnitTests", "GameServer.Core.UnitTests\GameServer.Core.UnitTests.csproj", "{6EC40E37-00CC-4128-B2D0-6AC65B23F239}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GameServer.Core.UnitTests", "GameServer.Core.UnitTests\GameServer.Core.UnitTests.csproj", "{6EC40E37-00CC-4128-B2D0-6AC65B23F239}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tgs.GameServer.Client", "Tgs.GameServer.Client\Tgs.GameServer.Client.csproj", "{25E6CCEE-AD2F-4020-B5C7-5478B79EE297}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tgs.GameServer.Client", "Tgs.GameServer.Client\Tgs.GameServer.Client.csproj", "{25E6CCEE-AD2F-4020-B5C7-5478B79EE297}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tgs.GameServer.IntegrationTests", "Tgs.GameServer.IntegrationTests\Tgs.GameServer.IntegrationTests.csproj", "{91CE82B1-F892-4FF5-B3F2-E019B8937608}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tgs.GameServer.IntegrationTests", "Tgs.GameServer.IntegrationTests\Tgs.GameServer.IntegrationTests.csproj", "{91CE82B1-F892-4FF5-B3F2-E019B8937608}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameServer.Repositories", "GameServer.Repositories\GameServer.Repositories.csproj", "{1263509F-7E8F-43E7-A0F7-7FAB62369123}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GameServer.Repositories", "GameServer.Repositories\GameServer.Repositories.csproj", "{1263509F-7E8F-43E7-A0F7-7FAB62369123}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
