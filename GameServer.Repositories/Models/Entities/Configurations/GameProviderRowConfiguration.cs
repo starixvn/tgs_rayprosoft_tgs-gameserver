@@ -9,9 +9,9 @@ using Tgs.GameServer.Repositories.Entities;
 
 namespace Tgs.GameServer.Repositories.Entities.Configurations
 {
-    public partial class GameProviderConfiguration : IEntityTypeConfiguration<GameProvider>
+    public partial class GameProviderRowConfiguration : IEntityTypeConfiguration<GameProviderRow>
     {
-        public void Configure(EntityTypeBuilder<GameProvider> entity)
+        public void Configure(EntityTypeBuilder<GameProviderRow> entity)
         {
             entity.HasKey(e => e.Id).HasName("pk_game_providers");
 
@@ -58,6 +58,6 @@ namespace Tgs.GameServer.Repositories.Entities.Configurations
             OnConfigurePartial(entity);
         }
 
-        partial void OnConfigurePartial(EntityTypeBuilder<GameProvider> entity);
+        partial void OnConfigurePartial(EntityTypeBuilder<GameProviderRow> entity);
     }
 }

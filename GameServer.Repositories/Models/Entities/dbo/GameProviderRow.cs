@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace Tgs.GameServer.Repositories.Entities;
 
-public partial class GameProvider
+public partial class GameProviderRow
 {
     public Guid Id { get; set; }
 

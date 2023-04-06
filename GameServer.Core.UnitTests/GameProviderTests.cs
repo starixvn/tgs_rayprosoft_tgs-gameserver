@@ -7,6 +7,24 @@ namespace GameServer.Core.UnitTests;
 public class GameProviderTests
 {
 	[Fact]
+	public async Task 查詢所有的GameProvider資料()
+	{
+		// Arrange
+		var fakeTgsRepository = Substitute.For<ITgsRepository>();
+
+		var sut = new ListGameProvidersQueryService(fakeTgsRepository);
+
+		var query = new ListGameProvidersQuery();
+
+		// Act
+		_ = await sut.QueryAsync(query).ToArrayAsync();
+
+		// Assert
+		_ = fakeTgsRepository.Received(1)
+			.GetGameProvidersAsync();
+	}
+
+	[Fact]
 	public async Task 設定GameProvider狀態()
 	{
 		// Arrange

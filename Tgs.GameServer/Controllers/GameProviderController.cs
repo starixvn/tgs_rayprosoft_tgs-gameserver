@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Tgs.GameServer.ApplicationServices;
+using Tgs.GameServer.ViewModels;
 using Tgs.ServiceUtility;
 
 namespace Tgs.GameServer.Controllers;
@@ -8,6 +9,17 @@ namespace Tgs.GameServer.Controllers;
 [ApiController]
 public class GameProviderController : ControllerBase
 {
+	[HttpGet(Name = "ListGameProviders")]
+	public IAsyncEnumerable<GameProviderViewModel> ListGameProvidersAsync(
+		[FromServices] IQueryService<ListGameProvidersQuery, GameProvider> queryService)
+		=> queryService.QueryAsync(new(), HttpContext.RequestAborted)
+			.Select(gp => new GameProviderViewModel
+			{
+				Id = gp.Id,
+				Code = gp.Code,
+				Description = gp.Description
+			});
+
 	[HttpPatch("status/{id}/{status}", Name = "SetGameProviderStatus")]
 	public ValueTask SetGameProviderStatusAsync(
 		[FromServices] ICommandService<SetGameProviderStatusCommand> setStatusService,

@@ -9,4 +9,6 @@ public interface ITgsRepository
 		CancellationToken cancellationToken = default);
 
 	ValueTask<GameStatus?> GetGameProviderStatusAsync(Guid id, CancellationToken cancellationToken = default);
+
+	IAsyncEnumerable<GameProvider> GetGameProvidersAsync(CancellationToken cancellationToken = default);
 }

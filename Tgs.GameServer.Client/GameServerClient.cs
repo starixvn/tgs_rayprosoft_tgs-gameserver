@@ -47,6 +47,16 @@ internal class GameServerClient : IGameServerClient
 			.FirstOrDefaultAsync(cancellationToken)
 			.ConfigureAwait(false);
 
+	public IAsyncEnumerable<GameProvider> ListGameProvidersAsync(CancellationToken cancellationToken = default)
+		=> _httpClient.GetAsync("/gp", cancellationToken)
+			.ToAsyncEnumerable()
+			.Do(response => response.EnsureSuccessStatusCode())
+			.SelectMany(response => response.Content
+				.ReadFromJsonAsync<GameProvider[]>(_JsonSerializerOptions)
+				.ToAsyncEnumerable()
+				.Where(arr => arr is not null)
+				.SelectMany(arr => arr!.ToAsyncEnumerable()));
+
 	private void PrepareHeaders(HttpContentHeaders headers)
 	{
 		foreach (var handler in _requestContentHandlers)

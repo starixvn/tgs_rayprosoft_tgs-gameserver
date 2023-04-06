@@ -14,7 +14,7 @@ public partial class TgsContext : DbContext
     {
     }
 
-    public virtual DbSet<GameProvider> GameProviders { get; set; }
+    public virtual DbSet<GameProviderRow> GameProviderRows { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -22,7 +22,7 @@ public partial class TgsContext : DbContext
             .HasPostgresExtension("ltree")
             .HasPostgresExtension("pg_trgm");
 
-            modelBuilder.ApplyConfiguration(new Configurations.GameProviderConfiguration());
+            modelBuilder.ApplyConfiguration(new Configurations.GameProviderRowConfiguration());
         OnModelCreatingPartial(modelBuilder);
     }
 
