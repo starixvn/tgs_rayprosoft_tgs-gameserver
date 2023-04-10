@@ -6,9 +6,6 @@ metadata:
   labels:
     {{- include "game-server.labels" . | nindent 4 }}
 data:
-  appsettings.json: |
-    {
-    }
   otel-collector-config.yaml: |
     receivers:
       otlp:
