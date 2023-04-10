@@ -6,7 +6,7 @@
 		<Nullable>enable</Nullable>
 		<RootNamespace>Tgs.GameServer.Clients</RootNamespace>
 		<PackageId>Tgs.GameServer.Client</PackageId>
-		<Version>0.0.3</Version>
+		<Version>0.0.4</Version>
 		<Authors>Raypro</Authors>
 		<SqlQueryToolsConnectionString />
 		<PackageProjectUrl>https://gitlab.com/rayprosoft/tgs-gameserver</PackageProjectUrl>
