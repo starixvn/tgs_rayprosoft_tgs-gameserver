@@ -22,7 +22,7 @@ public partial class TgsContext : DbContext
             .HasPostgresExtension("ltree")
             .HasPostgresExtension("pg_trgm");
 
-            modelBuilder.ApplyConfiguration(new Configurations.GameProviderRowConfiguration());
+        modelBuilder.ApplyConfiguration(new Configurations.GameProviderRowConfiguration());
         OnModelCreatingPartial(modelBuilder);
     }
 

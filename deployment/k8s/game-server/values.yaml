@@ -45,6 +45,7 @@ securityContext:
 service:
   type: ClusterIP
   port: 80
+  targetPort: 8080
 
 ingress:
   enabled: false
@@ -75,6 +76,14 @@ resources:
   # requests:
   #   cpu: 100m
   #   memory: 128Mi
+
+monitorResources:
+  requests:
+    cpu: 50m
+    memory: 32Mi
+  limits:
+    cpu: 250m
+    memory: 256Mi
 
 autoscaling:
   enabled: false

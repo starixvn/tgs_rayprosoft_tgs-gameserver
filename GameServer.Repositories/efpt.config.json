@@ -1,45 +1,49 @@
 ﻿{
-   "CodeGenerationMode": 3,
-   "ContextClassName": "TgsContext",
-   "ContextNamespace": "Entities",
-   "DefaultDacpacSchema": null,
-   "FilterSchemas": true,
-   "IncludeConnectionString": false,
-   "ModelNamespace": "Entities",
-   "OutputContextPath": "",
-   "OutputPath": "Models\/Entities",
-   "PreserveCasingWithRegex": true,
-   "ProjectRootNamespace": "Tgs.GameServer.Repositories",
-   "Schemas": [
-      {
-         "Name": "dbo"
-      }
-   ],
-   "SelectedHandlebarsLanguage": 0,
-   "SelectedToBeGenerated": 0,
-   "Tables": [
-      {
-         "Name": "dbo.game_providers",
-         "ObjectType": 0
-      }
-   ],
-   "UiHint": "tgs-local",
-   "UncountableWords": null,
-   "UseBoolPropertiesWithoutDefaultSql": true,
-   "UseDatabaseNames": false,
-   "UseDateOnlyTimeOnly": true,
-   "UseDbContextSplitting": true,
-   "UseFluentApiOnly": true,
-   "UseHandleBars": false,
-   "UseHierarchyId": false,
-   "UseInflector": true,
-   "UseLegacyPluralizer": false,
-   "UseManyToManyEntity": true,
-   "UseNoDefaultConstructor": true,
-   "UseNoObjectFilter": false,
-   "UseNodaTime": false,
-   "UseNullableReferences": true,
-   "UseSchemaFolders": true,
-   "UseSpatial": false,
-   "UseT4": false
+  "CodeGenerationMode": 4,
+  "ContextClassName": "TgsContext",
+  "ContextNamespace": "Entities",
+  "FilterSchemas": true,
+  "IncludeConnectionString": false,
+  "ModelNamespace": "Entities",
+  "OutputContextPath": "",
+  "OutputPath": "Models\/Entities",
+  "PreserveCasingWithRegex": true,
+  "ProjectRootNamespace": "Tgs.GameServer.Repositories",
+  "Schemas": [
+    {
+      "Name": "dbo"
+    }
+  ],
+  "SelectedHandlebarsLanguage": 0,
+  "SelectedToBeGenerated": 0,
+  "T4TemplatePath": null,
+  "Tables": [
+    {
+      "Name": "dbo.game_providers",
+      "ObjectType": 0
+    }
+  ],
+  "UiHint": null,
+  "UncountableWords": null,
+  "UseBoolPropertiesWithoutDefaultSql": true,
+  "UseDatabaseNames": false,
+  "UseDateOnlyTimeOnly": true,
+  "UseDbContextSplitting": true,
+  "UseDecimalDataAnnotationForSprocResult": true,
+  "UseFluentApiOnly": true,
+  "UseHandleBars": false,
+  "UseHierarchyId": false,
+  "UseInflector": true,
+  "UseLegacyPluralizer": false,
+  "UseManyToManyEntity": true,
+  "UseNoDefaultConstructor": true,
+  "UseNoNavigations": false,
+  "UseNoObjectFilter": false,
+  "UseNodaTime": false,
+  "UseNullableReferences": true,
+  "UsePrefixNavigationNaming": false,
+  "UseSchemaFolders": true,
+  "UseSchemaNamespaces": false,
+  "UseSpatial": false,
+  "UseT4": false
 }
