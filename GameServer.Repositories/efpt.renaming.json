@@ -1,13 +1,13 @@
 ﻿[
-   {
-      "SchemaName": "dbo",
-      "Tables": [
-         {
-            "Columns": [ ],
-            "Name": "game_providers",
-            "NewName": "GameProviderRow"
-         }
-      ],
-      "UseSchemaName": false
-   }
+  {
+    "SchemaName": "dbo",
+    "Tables": [
+      {
+        "Columns": [],
+        "Name": "game_providers",
+        "NewName": "GameProviderRow"
+      }
+    ],
+    "UseSchemaName": false
+  }
 ]

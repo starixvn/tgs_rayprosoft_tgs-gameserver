@@ -22,19 +22,11 @@ build-code:
 
 unit-test:
   extends: .unit-test-template
+  script:
+    - dotnet test -c $BuildConfiguration -l:"junit;LogFilePath=../TestReports/{assembly}-TestReport.xml" --no-restore --no-build
 
 push-nuget:
   extends: .push-nuget-template
-  before_script: 
-    - !reference [default, before_script]
-    - |
-      function push_package() {
-        local projectFolder=$1
-        local project=$2
-
-        dotnet pack -c $BuildConfiguration "${project:=$projectFolder/$projectFolder.csproj}" --no-restore
-        dotnet nuget push "$projectFolder/bin/$BuildConfiguration/*.nupkg" -s "raypro-baget" -k $NugetApiKey --skip-duplicate
-      }
   script:
     - push_package "Tgs.GameServer.Client"
   artifacts:
@@ -44,7 +36,7 @@ push-nuget:
 push-docker-image:
   extends: .push-docker-image-template
   script:
-    - push_docker "Tgs.GameServer/Tgs.GameServer.csproj" $ImageName $Tag
+    - push_docker "Tgs.GameRecord.Handle" $ImageName $Tag
 
 push-k8s-template:
   extends: .push-k8s-template
@@ -52,46 +44,73 @@ push-k8s-template:
     - push_k8s_template $HelmTemplateFolderName $ImageName $Tag
 
 deploy-dev:
-  extends: .deploy-template
+  extends: .deploy-k8s-template
+  image: 
+    name: pgtgs/tgs-backend-deploy:latest
   variables:
     namespace: dev
-    kube_config: KubeConfig_Raypro_dev
+    replica: 1
+    DedicatedKey: dedicated
+    NodeSelectorKey: node-selector
   environment:
-    name: dev
+    name: service-dev
   stage: deploy-dev
+  tags:
+    - dev
+    - kubernetes
+    - deploy
   needs:
-    - push-nuget
     - push-docker-image
     - job: push-k8s-template
       artifacts: true
   only:
     - main
-  when: on_success
+  when: manual
+  script:
+    - deploy_k8s $TgsSettingKey $HelmTemplateFolderName $namespace
 
 deploy-staging:
-  extends: .deploy-template
+  extends: .deploy-k8s-template
+  image: 
+    name: pgtgs/tgs-backend-deploy:latest
   variables:
     namespace: staging
-    kube_config: KubeConfig_Raypro_staging
+    replica: 1
+    DedicatedKey: dedicated
+    NodeSelectorKey: node-selector
   environment:
-    name: staging
+    name: service-staging
   stage: deploy-staging
+  tags:
+    - staging
+    - kubernetes
+    - deploy
   needs:
-    - deploy-dev
+    - push-docker-image
     - job: push-k8s-template
       artifacts: true
   only:
     - main
   when: manual
+  script:
+    - deploy_k8s $TgsSettingKey $HelmTemplateFolderName $namespace
 
 deploy-prod:
-  extends: .deploy-template
+  extends: .deploy-k8s-template
+  image: 
+    name: pgtgs/tgs-backend-deploy:latest
   variables:
     namespace: prod
-    kube_config: KubeConfig_Raypro_prod
+    replica: 1
+    DedicatedKey: dedicated
+    NodeSelectorKey: node-selector
   environment:
-    name: prod
+    name: service-prod
   stage: deploy-prod
+  tags:
+    - prod
+    - kubernetes
+    - deploy
   needs:
     - deploy-staging
     - job: push-k8s-template
@@ -99,3 +118,5 @@ deploy-prod:
   only:
     - main
   when: manual
+  script:
+    - deploy_k8s $TgsSettingKey $HelmTemplateFolderName $namespace
